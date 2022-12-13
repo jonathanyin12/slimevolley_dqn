@@ -102,7 +102,6 @@ def custom_reward(obs):
     return hit+dist
 
 
-
 def play_game(model, env, history_data, optimizer, loss_function, epsilon):
 
     obs = env.reset()
@@ -143,7 +142,7 @@ def play_game(model, env, history_data, optimizer, loss_function, epsilon):
         obs = next_obs
 
     if len(history_data) > observe:
-        print(total_reward/t, np.array(q_values))
+        print(total_reward, total_reward/t, np.array(q_values))
     return score, loss/t, t
 
 

@@ -10,7 +10,6 @@ import gym
 import slimevolleygym
 import tensorflow as tf
 from tensorflow import keras
-from tensorflow.keras import layers, initializers
 
 np.set_printoptions(threshold=20, precision=3, suppress=True, linewidth=200)
 
@@ -112,7 +111,7 @@ if __name__ == "__main__":
         if k == key.W:     otherManualAction[2] = 0
 
 
-    model = keras.models.load_model("model_epoch50.h5", compile=False)
+    model = keras.models.load_model("model_epoch190.h5", compile=False)
     print(model.summary())
     base_policy = slimevolleygym.BaselinePolicy() # defaults to use RNN Baseline for player
     
@@ -130,6 +129,7 @@ if __name__ == "__main__":
 
     done = False
     total_reward = 0
+    t = 0
     while not done:
         if otherManualMode: # override with keyboard
             action2 = otherManualAction
@@ -143,14 +143,17 @@ if __name__ == "__main__":
             action1 = policy(model, obs1)
 
 
-        # print(custom_reward(obs1))
         obs1, reward, done, info = env.step(action1,action2) # extra argument
         obs2 = info['otherObs']
 
-        total_reward += reward
+        # obs1, reward, done, info = env.step(action2) # extra argument
+        # obs2=obs1
 
+        total_reward += reward *10 + custom_reward(obs1)
+        t+=1
+        # print(total_reward/t)
         env.render()
-        sleep(0.02) # 0.01
+        sleep(0.01)
 
     env.close()
-    print("cumulative score", total_reward)
+    print("avg reward", total_reward/t, t, total_reward)
