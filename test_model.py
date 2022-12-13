@@ -111,7 +111,7 @@ if __name__ == "__main__":
         if k == key.W:     otherManualAction[2] = 0
 
 
-    model = keras.models.load_model("model_epoch190.h5", compile=False)
+    model = keras.models.load_model("model_epoch200.h5", compile=False)
     print(model.summary())
     base_policy = slimevolleygym.BaselinePolicy() # defaults to use RNN Baseline for player
     
@@ -153,7 +153,7 @@ if __name__ == "__main__":
         t+=1
         # print(total_reward/t)
         env.render()
-        sleep(0.01)
+        sleep(0.02)
 
     env.close()
     print("avg reward", total_reward/t, t, total_reward)
