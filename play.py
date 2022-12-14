@@ -53,4 +53,4 @@ def play(ckpt_path=None):
 
 
 if __name__ == "__main__":
-    play("model_epoch70.h5")
+    play("model.h5")

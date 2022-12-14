@@ -1,11 +1,9 @@
 import numpy as np
 import random
 from collections import deque
-import gym
 import tensorflow as tf
 from tensorflow import keras
 from tensorflow.keras import layers, initializers
-import slimevolleygym
 
 
 class DQN:
@@ -37,7 +35,7 @@ class DQN:
             print("Model loaded")
             return model
         except:
-            model = model(self)
+            model = self.model()
             print("New model created")
             return model
 

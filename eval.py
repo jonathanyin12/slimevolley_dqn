@@ -17,7 +17,7 @@ def eval_dqn(ckpt_path=None):
         print(i, " Score:", score, "Reward:", total_reward, "Length:", t)
 
     print("===================================================")
-    print("Avg score", avg_score/games, "Avg reward", avg_total_reward,  "Avg game length", avg_time/games)
+    print("Avg score", avg_score/games, "Avg reward", avg_total_reward/games,  "Avg game length", avg_time/games)
 
 if __name__ == "__main__":
-    eval_dqn("model_epoch60.h5")
+    eval_dqn("model.h5")

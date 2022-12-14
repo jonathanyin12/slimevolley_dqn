@@ -11,7 +11,7 @@ def train_dqn(ckpt_path=None):
     agent = DQN(ckpt_path, gamma, replay_memory, observe, batch_size, lr)
 
 
-    epsilon = 0.2 * (0.99**200)
+    epsilon = 0.2
     decay = 0.99
     min_epsilon = 0.001
     env = gym.make("SlimeVolley-v0")
@@ -30,4 +30,4 @@ def train_dqn(ckpt_path=None):
 
 
 if __name__ == "__main__":
-    train_dqn("model_epoch200.h5")
+    train_dqn()

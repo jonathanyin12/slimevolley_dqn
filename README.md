@@ -31,9 +31,9 @@ Our agent is the yellow slime on the right. By using the arrow keys, you can man
 
 
 ## Results:
-After training for 300 epochs, our model achieved an average score of -1.6 against the baseline agent. Each game lasted on average 2974.29 time steps. Since the game ends after 3000 time steps, rarely does either agent run out of lives. 
+After training for over 500 epochs, our model achieved an average score of -0.35 against the baseline agent. Each game lasted on average 3000 time steps. Since the game ends after 3000 time steps, neither agent runs out of lives before the game ends. 
 
-Although the baseline agent is clearly better, we were impressed by the performance of our model nonetheless. It plays intelligently and can beat the average human player.
+Although the baseline agent is better, we were impressed by the performance of our model nonetheless. It plays intelligently and can win against the average human player.
 
 
 ## References:
