@@ -31,8 +31,10 @@ Our agent is the yellow slime on the right. By using the arrow keys, you can man
 
 
 ## Results:
-After training for 200 epochs, our model achieved an avg score of -3.03 against the baseline agent. Each game lasted on average 2760 time steps. Although the baseline agent is clearly better, we were impressed by the performance of our model nonetheless. It clearly plays intelligently and can beat the average human player.
+After training for 300 epochs, our model achieved an average score of -1.6 against the baseline agent. Each game lasted on average 2974.29 time steps. Since the game ends after 3000 time steps, rarely does either agent run out of lives. 
+
+Although the baseline agent is clearly better, we were impressed by the performance of our model nonetheless. It plays intelligently and can beat the average human player.
 
 
 ## References:
-The baseline agent is from [slimevolleygym](https://github.com/hardmaru/slimevolleygym), which is also the OpenAI Gym Environment we used to train our model.
+We use [Slime Volleyball Gym](https://github.com/hardmaru/slimevolleygym) as our gym environment to train our model. Our agent is trained against the baseline model provided by the environment.
