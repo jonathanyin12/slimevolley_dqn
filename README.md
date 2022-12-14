@@ -6,6 +6,10 @@ https://user-images.githubusercontent.com/26175818/207496808-c5ef73e8-3663-4fe3-
 
 
 ## Installation: 
+For installation, you will need to pip install the required packages
+```
+pip install -r requirements.txt
+```
 
 ## Basic Usage:
 To train the deep q-network, run
@@ -27,4 +31,4 @@ After training for 200 epochs, our model achieved an avg score of -3.03 against 
 
 
 ## References:
-The baseline agent is from [slimevolleygym](https://github.com/hardmaru/slimevolleygym), which is also the OpenAi Gym Environment we used to train our model. Our evaluation and test code is loosely modelled after existing test scripts in that repository.
+The baseline agent is from [slimevolleygym](https://github.com/hardmaru/slimevolleygym), which is also the OpenAI Gym Environment we used to train our model. Our evaluation and test code is also loosely modeled after existing test scripts in that repository.
