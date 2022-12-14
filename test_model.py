@@ -1,10 +1,3 @@
-"""
-State mode (Optional Human vs Built-in AI)
-
-FPS (no-render): 100000 steps /7.956 seconds. 12.5K/s.
-"""
-
-import math
 import numpy as np
 import gym
 import slimevolleygym
@@ -111,9 +104,9 @@ if __name__ == "__main__":
         if k == key.W:     otherManualAction[2] = 0
 
 
-    model = keras.models.load_model("model_epoch200.h5", compile=False)
+    model = keras.models.load_model("model_epoch30.h5", compile=False)
     print(model.summary())
-    base_policy = slimevolleygym.BaselinePolicy() # defaults to use RNN Baseline for player
+    base_policy = slimevolleygym.BaselinePolicy()
     
     env = gym.make("SlimeVolley-v0")
     env.seed(np.random.randint(0, 10000))
@@ -130,6 +123,7 @@ if __name__ == "__main__":
     done = False
     total_reward = 0
     t = 0
+    score=0
     while not done:
         if otherManualMode: # override with keyboard
             action2 = otherManualAction
@@ -148,12 +142,11 @@ if __name__ == "__main__":
 
         # obs1, reward, done, info = env.step(action2) # extra argument
         # obs2=obs1
-
+        score += reward
         total_reward += reward *10 + custom_reward(obs1)
         t+=1
         # print(total_reward/t)
         env.render()
-        sleep(0.02)
 
     env.close()
-    print("avg reward", total_reward/t, t, total_reward)
+    print(score, total_reward/t, t, total_reward)

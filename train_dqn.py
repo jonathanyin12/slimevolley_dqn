@@ -8,11 +8,11 @@ from collections import deque
 import gym
 import slimevolleygym
 
-gamma = 0.95          # decay rate of past observations
+gamma = 0.9          # decay rate of past observations
 step_size = 1e-4       # step size
 
-observe = 1000         # timesteps to observe before training
-replay_memory = 50000      # number of previous transitions to remember
+observe = 10000         # timesteps to observe before training
+replay_memory = 100000      # number of previous transitions to remember
 batch_size = 32           # size of each batch
 num_actions = 6
 
@@ -157,7 +157,7 @@ def train_dqn(ckpt_path=None):
 
     print(model.summary())
 
-    epsilon = 0.2
+    epsilon = 0.2 *(0.99**200)
     decay = 0.99
     min_epsilon = 0.001
     # specify the optimizer and loss function
@@ -178,4 +178,4 @@ def train_dqn(ckpt_path=None):
 
 
 if __name__ == "__main__":
-    train_dqn()
+    train_dqn("model_epoch200.h5")
