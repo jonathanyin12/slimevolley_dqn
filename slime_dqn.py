@@ -7,7 +7,7 @@ from tensorflow.keras import layers, initializers
 
 
 class DQN:
-    def __init__(self, checkpoint=None, gamma= 0.9, max_experiences= 100000, min_experiences= 10000, batch_size= 32, lr= 1e-4):
+    def __init__(self, checkpoint=None, gamma= 0.9, max_experiences= 100000, min_experiences= 10000, batch_size= 32, lr= 1e-4): #initialize DQN class with corresponding default parameters
         self.model = self.load_model(checkpoint)
         print(self.model.summary())
         self.batch_size = batch_size
@@ -21,11 +21,11 @@ class DQN:
 
     def model(self):
         state = layers.Input(shape=(12))
-        hidden1 = layers.Dense(32, activation='relu', kernel_initializer=initializers.RandomNormal(stddev=0.1),
+        hidden1 = layers.Dense(32, activation='relu', kernel_initializer=initializers.RandomNormal(stddev=0.1), #first hidden layer using ReLU activation functions
                                bias_initializer=initializers.Constant(0.0))(state)
-        hidden2 = layers.Dense(32, activation='relu', kernel_initializer=initializers.RandomNormal(stddev=0.1),
+        hidden2 = layers.Dense(32, activation='relu', kernel_initializer=initializers.RandomNormal(stddev=0.1), #second hidden layer using ReLU activation functions
                                bias_initializer=initializers.Constant(0.0))(hidden1)
-        q_value = layers.Dense(6, activation='linear', kernel_initializer=initializers.RandomNormal(stddev=0.1),
+        q_value = layers.Dense(6, activation='linear', kernel_initializer=initializers.RandomNormal(stddev=0.1), #q-value output layer using linear activation function
                                bias_initializer=initializers.Constant(0.0))(hidden2)
         return keras.Model(inputs=state, outputs=q_value)
 
@@ -56,7 +56,7 @@ class DQN:
         action = self.getAction(action_index)
         return action, action_index, q_values
 
-    def getAction(self, i):
+    def getAction(self, i): #casework on returning correct actions from indices
         if i == 0:
             return [1, 0, 0]
         elif i == 1:
