@@ -5,6 +5,8 @@ https://user-images.githubusercontent.com/26175818/207496808-c5ef73e8-3663-4fe3-
 
 Our trained agent, based on the Deep Q-learning algorithm is the yellow agent on the right, while the baseline agent is the blue agent on the right. We observe that our agent, trained via DQN, is able to move and adjust accordingly to consistently hit the ball over the net and prevent the ball from hitting the ground on its own side.
 
+The game is Slime Volleyball. It is a two player game, where each person controls an agent and uses the arrow keys to move their agent left and right and to jump. There is a ball that is being passed back and forth, and the goal of the game is to hit the ball with your agent and getting it across the net. The balls and agents obey the laws of gravity, and the ball bounces on each agent's head as one would expect in physics. A player score a point if the ball touches the ground on the opponent's side, and a player loses a point if it lands on their side. The game is also capped at 3000 time steps, in which case the game is drawn, and no player scores any point. 
+
 ## Installation: 
 For installation, you will need to pip install the required packages
 ```
@@ -34,7 +36,7 @@ Our agent is the yellow slime on the right. By using the arrow keys, you can man
 ## Results:
 After training for over 500 epochs, our model achieved an average score of -0.35 against the baseline agent. Each game lasted on average 3000 time steps. Since the game ends after 3000 time steps, neither agent runs out of lives before the game ends. 
 
-Although the baseline agent is better, we were impressed by the performance of our model nonetheless. It plays intelligently and can win against the average human player.
+Although the baseline agent is better, we were impressed by the performance of our model nonetheless. Empirically, when playing manually against the baseline agent, we consistenly lose every round (corresponding to an average score of approximately -1), so our agent is able to perform significantly better. As seen in our video, our agent plays intelligently. Furthermore, it can win against the average human player consistently.
 
 
 ## References:
